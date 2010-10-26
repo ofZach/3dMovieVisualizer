@@ -1,0 +1,33 @@
+<maxBrightness>
+    <val_0>0.000000</val_0>
+</maxBrightness>
+<rgbBrightness>
+    <val_0>0.833333</val_0>
+</rgbBrightness>
+<point_brightness>
+    <val_0>17.333334</val_0>
+</point_brightness>
+<focus_offset>
+    <val_0>2311.110840</val_0>
+</focus_offset>
+<aberration>
+    <val_0>0.013667</val_0>
+</aberration>
+<aperture>
+    <val_0>0.016478</val_0>
+</aperture>
+<maxPointSize>
+    <val_0>21.299999</val_0>
+</maxPointSize>
+<velthresh>
+    <val_0>8.888889</val_0>
+</velthresh>
+<ranthresh>
+    <val_0>0.855556</val_0>
+</ranthresh>
+<velcreates>
+    <val_0>1.000000</val_0>
+</velcreates>
+<spherize>
+    <val_0>0.000000</val_0>
+</spherize>
