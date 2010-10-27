@@ -21,12 +21,14 @@ void testApp::setup(){
 	
 	processor.setup();
 	
-	numScenes = 4;
+	numScenes = 5;
 	scenes = new baseScene*[numScenes];
 	scenes[0] = new simpleScene();
 	scenes[1] = new lineScene();
 	scenes[2] = new movementScene();
 	scenes[3] = new thickLineScene();
+	scenes[4] = new paintScene();
+
 
 
 	for (int i = 0; i < numScenes; i++){
@@ -58,12 +60,8 @@ void testApp::update(){
 	
 	for (int i = 0; i < numScenes; i++){
 		scenes[i]->pointSet = processor.pointSet;
-		
-		
 	}
-	
-	
-	
+
 	for (int i = 0; i < numScenes; i++){
 		scenes[i]->control.bDrawBox = false;
 	}

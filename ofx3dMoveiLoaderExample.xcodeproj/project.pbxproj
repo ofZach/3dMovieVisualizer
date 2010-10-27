@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9201A6571276734F0089DDFA /* thickLineScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9201A6551276734F0089DDFA /* thickLineScene.cpp */; };
+		9201AA5D1277D4840089DDFA /* ofxFBOTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9201AA5B1277D4840089DDFA /* ofxFBOTexture.cpp */; };
+		9201AA671277D5130089DDFA /* paintScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9201AA651277D5130089DDFA /* paintScene.cpp */; };
 		927B263212738E16002C4050 /* openCV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 927B262012738E16002C4050 /* openCV.a */; };
 		927B263312738E16002C4050 /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927B262312738E16002C4050 /* ofxCvColorImage.cpp */; };
 		927B263412738E16002C4050 /* ofxCvContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927B262612738E16002C4050 /* ofxCvContourFinder.cpp */; };
@@ -113,6 +115,10 @@
 /* Begin PBXFileReference section */
 		9201A6551276734F0089DDFA /* thickLineScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = thickLineScene.cpp; path = simpleScene/thickLineScene.cpp; sourceTree = "<group>"; };
 		9201A6561276734F0089DDFA /* thickLineScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = thickLineScene.h; path = simpleScene/thickLineScene.h; sourceTree = "<group>"; };
+		9201AA5B1277D4840089DDFA /* ofxFBOTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxFBOTexture.cpp; sourceTree = "<group>"; };
+		9201AA5C1277D4840089DDFA /* ofxFBOTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxFBOTexture.h; sourceTree = "<group>"; };
+		9201AA651277D5130089DDFA /* paintScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = paintScene.cpp; sourceTree = "<group>"; };
+		9201AA661277D5130089DDFA /* paintScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = paintScene.h; sourceTree = "<group>"; };
 		927B260F12738E16002C4050 /* cv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv.h; sourceTree = "<group>"; };
 		927B261012738E16002C4050 /* cv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cv.hpp; sourceTree = "<group>"; };
 		927B261112738E16002C4050 /* cvaux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvaux.h; sourceTree = "<group>"; };
@@ -298,6 +304,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9201AA5A1277D4840089DDFA /* ofxFBOTexture-MultiSample */ = {
+			isa = PBXGroup;
+			children = (
+				9201AA5B1277D4840089DDFA /* ofxFBOTexture.cpp */,
+				9201AA5C1277D4840089DDFA /* ofxFBOTexture.h */,
+			);
+			name = "ofxFBOTexture-MultiSample";
+			path = "addons/ofxFBOTexture-MultiSample";
+			sourceTree = "<group>";
+		};
 		927B260B12738E16002C4050 /* ofxOpenCv */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +539,8 @@
 		92D98EC41275712C00CC748B /* simpleScene */ = {
 			isa = PBXGroup;
 			children = (
+				9201AA651277D5130089DDFA /* paintScene.cpp */,
+				9201AA661277D5130089DDFA /* paintScene.h */,
 				92D990D91275A8A900CC748B /* useful */,
 				92D98F481275910300CC748B /* movementScene.cpp */,
 				92D98F491275910300CC748B /* movementScene.h */,
@@ -574,6 +592,7 @@
 		956D89B212711004008E7AEC /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				9201AA5A1277D4840089DDFA /* ofxFBOTexture-MultiSample */,
 				92D992711275E97400CC748B /* ofxShader */,
 				92D98F4B1275960000CC748B /* ofxCvOpticalFlow */,
 				92D98E221275680A00CC748B /* ofx3dMovie */,
@@ -1008,6 +1027,8 @@
 				92D992EA1275F07300CC748B /* DOFCloud.frag in Sources */,
 				92D992EB1275F07300CC748B /* DOFCloud.vert in Sources */,
 				9201A6571276734F0089DDFA /* thickLineScene.cpp in Sources */,
+				9201AA5D1277D4840089DDFA /* ofxFBOTexture.cpp in Sources */,
+				9201AA671277D5130089DDFA /* paintScene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,7 @@
 #include "lineScene.h"
 #include "movementScene.h"
 #include "thickLineScene.h"
-
+#include "paintScene.h"
 
 
 class testApp : public ofBaseApp{

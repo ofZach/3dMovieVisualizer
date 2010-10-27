@@ -21,6 +21,9 @@ void thickLineScene::update(){
 void thickLineScene::draw(){
 	
 	
+	
+	glEnable(GL_DEPTH);
+	glEnable(GL_DEPTH_TEST);
 	point3d * points = pointSet.points;
 	
 	ofEnableAlphaBlending();
@@ -40,11 +43,11 @@ void thickLineScene::draw(){
 		for(int j = 0; j < 176-1; j+=1) {
 			
 			
-			float colorDiv = ofMap(sin(ofGetElapsedTimef()), -1,1, 0.01, 20);
+			float colorDiv = ofMap(sin(ofGetElapsedTimef()), -1,1, 2, 20);
 			float colora = ofMap(sin(i/colorDiv), -1,1, 100, 200);
 			
 			if (colora < 190){
-			ofSetColor(255-colora-100,255-colora-100,255-colora-100,255);
+				ofSetColor(255-colora-100,255-colora-100,255-colora-100,255);
 			} else {
 				ofSetColor(255,255,255,255);
 
