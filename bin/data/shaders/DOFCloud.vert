@@ -14,12 +14,13 @@ void main() {
 	
   float size = abs(gl_Position.z - focusDistance) * aperture + 1.;
   gl_PointSize = min(size,maxPointSize);
+  float size2 = min(size,maxPointSize); 
   //gl_PointSize = size;
 
   gl_FrontColor = gl_Color;
-  float radius = gl_PointSize / 2.;
+  float radius = size2 / 2.;
 	// divide the color alpha by the area
-  gl_FrontColor.a /= PI * radius * radius;
+  gl_FrontColor.a /= PI * (radius * radius) * 0.3;
 	gl_FrontColor.a *= pointBrightness;
 	gl_FrontColor.rgb *= rgbBrightness;
 }

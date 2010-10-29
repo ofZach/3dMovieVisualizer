@@ -14,6 +14,9 @@
 #include "movementScene.h"
 #include "thickLineScene.h"
 #include "paintScene.h"
+#include "movementLineDOFScene.h"
+
+//#include <cairo/carioline.h>
 
 
 class testApp : public ofBaseApp{

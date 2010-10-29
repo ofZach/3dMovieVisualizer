@@ -19,7 +19,7 @@
 
 
 
-class movementScene : public baseScene {
+class movementLineDOFScene : public baseScene {
 	
 public: 
 	

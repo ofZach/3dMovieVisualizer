@@ -21,15 +21,14 @@ void testApp::setup(){
 	
 	processor.setup();
 	
-	numScenes = 5;
+	numScenes = 6;
 	scenes = new baseScene*[numScenes];
 	scenes[0] = new simpleScene();
 	scenes[1] = new lineScene();
 	scenes[2] = new movementScene();
 	scenes[3] = new thickLineScene();
 	scenes[4] = new paintScene();
-
-
+	scenes[5] = new movementLineDOFScene();
 
 	for (int i = 0; i < numScenes; i++){
 		scenes[i]->setup();

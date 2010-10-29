@@ -263,7 +263,11 @@ void ofxShader::setAttribute(const char* name, float v1, float v2) {
 
 void ofxShader::setAttribute(const char* name, float v1, float v2, float v3) {
 	if(bLoaded)
-		glVertexAttrib3f(getLoc(name), v1, v2, v3);
+		glVertexAttrib3f(getAttributeLocation(name), v1, v2, v3);
+	
+	printActiveAttributes();
+	cout << getAttributeLocation(name) << endl;
+	
 }
 
 void ofxShader::setAttribute(const char* name, float v1, float v2, float v3, float v4) {

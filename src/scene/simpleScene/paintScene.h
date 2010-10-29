@@ -29,4 +29,6 @@ public:
 
 	ofPoint randomColors[10];
 	
+
+	
 };

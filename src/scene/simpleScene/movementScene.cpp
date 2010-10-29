@@ -24,7 +24,7 @@ void movementScene::setup(){
 	
 	
 	dofShader.setup("shaders/DOFCloud");
-	
+	dofLineShader.setup("shaders/DOFCloudLine");
 	
 	panel.setup("control", 0,150,300,700);
 	panel.addPanel("3d control", 1, false);
@@ -261,59 +261,213 @@ void movementScene::draw(){
 	glEnd();
 	
 	ofSetColor(255,255,255);
-	
-	/*for(int i = 0; i < 144; i+= 1) {
-		bool bInRun = false;
-		for(int j = 0; j < 176; j++) {
-			int n = (j  + i * 176);
-			if (points[n].bVisibleThisFrame == true){
-				
-				//ofSetColor(points[n].color.x * 255.0, points[n].color.y * 255.0, points[n].color.z * 255.0, 200.0);
-				ofSetColor(255,255,255,100);
-				
-				ofPoint flowAmt = flow.flowAtPoint(i,j);
-				
-				
-				ofxVec3f pt;
-				pt.set(points[n].pos.x - pointSet.midPointSmoothed.x, points[n].pos.y - pointSet.midPointSmoothed.y, points[n].pos.z - pointSet.midPointSmoothed.z);
-				
-				ofxVec3f flowPt;
-				flowPt.set(flowAmt.x, flowAmt.y, 0);
-				
-				flowPt *= 4;
-				if (flowPt.length() > (ofGetAppPtr()->mouseX)){
-					
-				} else {
-					flowPt.set(0,0, 0);	
-				}
-				//flowPt.limit(100);
-				
-				
-				//float pct = flowPt.length() / 50.0f;
-//				flowPt.normalize();
-//				flowPt *= 50 * powf(pct, 1.3);
-//				if (flowPt.length() > 25) flowPt *= 5;
-//				
-				
-				glBegin(GL_LINES);
-				glVertex3f(pt.x, pt.y, pt.z);
-				glVertex3f(pt.x + flowPt.x, pt.y + flowPt.y, pt.z);
-				glEnd();
-				
-				//glVertex3f(points[n].pos.x - pointSet.midPointSmoothed.x, points[n].pos.y - pointSet.midPointSmoothed.y, points[n].pos.z - pointSet.midPointSmoothed.z);
-				
-			
-			
-			} else {
-				
-			}
-		}
-		
-	}*/
-	
-	
 	dofShader.end();
 	
+	
+//	for(int i = 0; i < 144; i+= 1) {
+//		bool bInRun = false;
+//		for(int j = 0; j < 176; j++) {
+//			int n = (j  + i * 176);
+//			if (points[n].bVisibleThisFrame == true){
+//				
+//				//ofSetColor(points[n].color.x * 255.0, points[n].color.y * 255.0, points[n].color.z * 255.0, 200.0);
+//				ofSetColor(255,255,255,100);
+//				
+//				ofPoint flowAmt = flow.flowAtPoint(i,j);
+//				
+//				
+//				ofxVec3f pt;
+//				pt.set(points[n].pos.x - pointSet.midPointSmoothed.x, points[n].pos.y - pointSet.midPointSmoothed.y, points[n].pos.z - pointSet.midPointSmoothed.z);
+//				
+//				ofxVec3f flowPt;
+//				flowPt.set(flowAmt.x, flowAmt.y, 0);
+//				
+//				flowPt *= 4;
+//				if (flowPt.length() > (ofGetAppPtr()->mouseX)){
+//					
+//				} else {
+//					flowPt.set(0,0, 0);	
+//				}
+//				//flowPt.limit(100);
+//				
+//				
+//				//float pct = flowPt.length() / 50.0f;
+////				flowPt.normalize();
+////				flowPt *= 50 * powf(pct, 1.3);
+////				if (flowPt.length() > 25) flowPt *= 5;
+////				
+//				
+//				glBegin(GL_LINES);
+//				glVertex3f(pt.x, pt.y, pt.z);
+//				glVertex3f(pt.x + flowPt.x, pt.y + flowPt.y, pt.z);
+//				glEnd();
+//				
+//				//glVertex3f(points[n].pos.x - pointSet.midPointSmoothed.x, points[n].pos.y - pointSet.midPointSmoothed.y, points[n].pos.z - pointSet.midPointSmoothed.z);
+//				
+//			
+//			
+//			} else {
+//				
+//			}
+//		}
+//		
+//	}*/
+	
+	
+	
+	//dofLineShader.begin();
+	
+
+	glDisable(GL_DEPTH);
+	glDisable(GL_DEPTH_TEST);
+	/*
+	
+	
+	float rgbBrightness = panel.getValueF("rgbBrightness");
+	float pointBrightness = panel.getValueF("point_brightness");
+	float aberration		= panel.getValueF("aberration");
+	float aperture		= panel.getValueF("aperture");
+	dofLineShader.setUniform("focusDistance", panel.getValueF("focus_offset"));
+	dofLineShader.setUniform("aperture", aperture);
+	dofLineShader.setUniform("pointBrightness", pointBrightness);
+	dofLineShader.setUniform("rgbBrightness", rgbBrightness);
+	dofLineShader.setUniform("maxPointSize", panel.getValueF("maxPointSize"));
+	
+	
+	int step = 10; //(int)ofMap(sin(ofGetElapsedTimef()*20), -1,1, 1,8);
+	for(int i = 0; i < 144; i+= step) {
+		bool bInRun = false;
+		
+		
+		ofxVec3f upNormal;
+		ofxVec3f sideNormal;
+		
+		//glBegin(GL_LINE_STRIP);
+		for(int j = 0; j < 176-1; j++) {
+			int n0 = (j  + i * 176);
+			int n1 = ((j+1)  + i * 176);
+			
+			
+			
+			
+			//  a
+//			b c d
+//			  e
+			
+			ofxVec3f ptsa[5];	
+			ofxVec3f ptsb[5];	
+			
+			ofxVec3f pta; pta.set(points[n0].pos.x - pointSet.midPointSmoothed.x, points[n0].pos.y - pointSet.midPointSmoothed.y, points[n0].pos.z - pointSet.midPointSmoothed.z);
+			ofxVec3f ptb; ptb.set(points[n1].pos.x - pointSet.midPointSmoothed.x, points[n1].pos.y - pointSet.midPointSmoothed.y, points[n1].pos.z - pointSet.midPointSmoothed.z);
+			
+			//printf("%f %f %f %f %f %f \n", pta.x, pta.x, pta.z, ptb.x, ptb.y, ptb.z);
+			
+			ofxVec3f diff = ptb-pta;
+			diff.normalize();
+			ofxVec3f up;
+			up.set(0,1,0);
+			ofxVec3f side;
+			side.set(0,0,1);
+			
+			
+			ofxVec3f oldUpNormal;
+			ofxVec3f oldSideNormal; 
+			if (j != 0){
+				oldUpNormal = upNormal;
+				oldSideNormal = sideNormal;
+			}
+			
+			ofxVec3f upNormal = diff.getCrossed(up);
+			ofxVec3f sideNormal = diff.getCrossed(side);
+			if (j == 0){
+				oldUpNormal = upNormal;
+				oldSideNormal = sideNormal;
+			}
+			
+			
+			ptsa[0] = pta + upNormal *0.0;
+			ptsa[1] = pta + sideNormal*0.0;
+			ptsa[2] = pta;
+			ptsa[3] = pta - sideNormal *0.0;
+			ptsa[4] = pta - upNormal *0.0;
+			
+			
+			ptsb[0] = ptb + upNormal *0.0;
+			ptsb[1] = ptb + sideNormal*0.0;
+			ptsb[2] = ptb;
+			ptsb[3] = ptb - sideNormal *0.0;
+			ptsb[4] = ptb - upNormal *0.0;
+			
+			//draw two quads.  use color to represent which direction to distort this point! 
+			
+			//
+//			glBegin(GL_LINES);
+//			glVertex3f(pta.x, pta.y, pta.z);
+//			glVertex3f(ptb.x, ptb.y, ptb.z);
+//			
+//			glEnd();
+			
+			glBegin(GL_QUADS);
+			
+			glNormal3f(oldSideNormal.x, oldSideNormal.y, oldSideNormal.z);
+			glVertex3f(ptsa[1].x, ptsa[1].y, ptsa[1].z);
+			
+			glNormal3f(-oldSideNormal.x, -oldSideNormal.y, -oldSideNormal.z);
+			glVertex3f(ptsa[3].x, ptsa[3].y, ptsa[3].z);
+			
+			glNormal3f(-sideNormal.x, -sideNormal.y, -sideNormal.z);
+			glVertex3f(ptsb[3].x, ptsb[3].y, ptsb[3].z);
+			
+			glNormal3f(sideNormal.x, sideNormal.y, sideNormal.z);
+			glVertex3f(ptsb[1].x, ptsb[1].y, ptsb[1].z);
+			
+			
+			glEnd();
+			
+			
+			glBegin(GL_QUADS);
+			
+			glNormal3f(oldUpNormal.x, oldUpNormal.y, oldUpNormal.z);
+			glVertex3f(ptsa[0].x, ptsa[0].y, ptsa[0].z);
+			
+			glNormal3f(-oldUpNormal.x, -oldUpNormal.y, -oldUpNormal.z);
+			glVertex3f(ptsa[4].x, ptsa[4].y, ptsa[4].z);
+			
+			
+			glNormal3f(-upNormal.x, -upNormal.y, -upNormal.z);
+			glVertex3f(ptsb[4].x, ptsb[4].y, ptsb[4].z);
+			
+			glNormal3f(upNormal.x, upNormal.y, upNormal.z);
+			glVertex3f(ptsb[0].x, ptsb[0].y, ptsb[0].z);
+
+			glEnd();
+			
+			
+			
+			//
+//			
+//			//float pctz = ( points[n].pos.z - pointSet.bottom.z) / (pointSet.top.z - pointSet.bottom.z);
+//			//pctz = powf(pctz, 3.0);
+//			//int clr = ofMap(pctz, 0,1,50, 255);
+//			
+//			if (points[n].bVisibleThisFrame == true){
+//				ofSetColor(200,200,200,100);
+//				glVertex3f(points[n].pos.x - pointSet.midPointSmoothed.x, points[n].pos.y - pointSet.midPointSmoothed.y, points[n].pos.z - pointSet.midPointSmoothed.z);
+//				
+//			} else {
+//				ofSetColor(200,200,200,100);
+//				glVertex3f(points[n].pos.x - pointSet.midPointSmoothed.x, points[n].pos.y - pointSet.midPointSmoothed.y,  points[n].pos.z - pointSet.midPointSmoothed.z);
+//				
+//				
+//			}
+			
+		}
+		//glEnd();	
+		
+	}
+	
+	dofLineShader.end();
+	*/
 	//--------
 	
 	

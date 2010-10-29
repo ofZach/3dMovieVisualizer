@@ -43,7 +43,7 @@ void thickLineScene::draw(){
 		for(int j = 0; j < 176-1; j+=1) {
 			
 			
-			float colorDiv = ofMap(sin(ofGetElapsedTimef()), -1,1, 2, 20);
+			float colorDiv = ofMap(sin(ofGetElapsedTimef()), -1,1, 0.1, 20);
 			float colora = ofMap(sin(i/colorDiv), -1,1, 100, 200);
 			
 			if (colora < 190){
