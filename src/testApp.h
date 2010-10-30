@@ -15,6 +15,7 @@
 #include "thickLineScene.h"
 #include "paintScene.h"
 #include "movementLineDOFScene.h"
+#include "movementLineDOF2Scene.h"
 
 //#include <cairo/carioline.h>
 

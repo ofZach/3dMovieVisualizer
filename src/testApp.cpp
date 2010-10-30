@@ -21,7 +21,7 @@ void testApp::setup(){
 	
 	processor.setup();
 	
-	numScenes = 6;
+	numScenes = 7;
 	scenes = new baseScene*[numScenes];
 	scenes[0] = new simpleScene();
 	scenes[1] = new lineScene();
@@ -29,6 +29,7 @@ void testApp::setup(){
 	scenes[3] = new thickLineScene();
 	scenes[4] = new paintScene();
 	scenes[5] = new movementLineDOFScene();
+	scenes[6] = new movementLineDOF2Scene();
 
 	for (int i = 0; i < numScenes; i++){
 		scenes[i]->setup();

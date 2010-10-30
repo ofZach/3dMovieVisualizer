@@ -13,6 +13,7 @@
 		9201AC6B1278B2DD0089DDFA /* DOFCloudLine.frag in Sources */ = {isa = PBXBuildFile; fileRef = 9201AC691278B2DD0089DDFA /* DOFCloudLine.frag */; };
 		9201AC6C1278B2DD0089DDFA /* DOFCloudLine.vert in Sources */ = {isa = PBXBuildFile; fileRef = 9201AC6A1278B2DD0089DDFA /* DOFCloudLine.vert */; };
 		92588DDE1279CA880084483B /* movementLineDOFScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92588DDC1279CA880084483B /* movementLineDOFScene.cpp */; };
+		926BF703127C96500094D031 /* movementLineDOF2Scene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 926BF701127C96500094D031 /* movementLineDOF2Scene.cpp */; };
 		927B263212738E16002C4050 /* openCV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 927B262012738E16002C4050 /* openCV.a */; };
 		927B263312738E16002C4050 /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927B262312738E16002C4050 /* ofxCvColorImage.cpp */; };
 		927B263412738E16002C4050 /* ofxCvContourFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 927B262612738E16002C4050 /* ofxCvContourFinder.cpp */; };
@@ -126,6 +127,8 @@
 		9201AC6A1278B2DD0089DDFA /* DOFCloudLine.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = DOFCloudLine.vert; path = bin/data/shaders/DOFCloudLine.vert; sourceTree = SOURCE_ROOT; };
 		92588DDC1279CA880084483B /* movementLineDOFScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = movementLineDOFScene.cpp; sourceTree = "<group>"; };
 		92588DDD1279CA880084483B /* movementLineDOFScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = movementLineDOFScene.h; sourceTree = "<group>"; };
+		926BF701127C96500094D031 /* movementLineDOF2Scene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = movementLineDOF2Scene.cpp; path = simpleScene/movementLineDOF2Scene.cpp; sourceTree = "<group>"; };
+		926BF702127C96500094D031 /* movementLineDOF2Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = movementLineDOF2Scene.h; path = simpleScene/movementLineDOF2Scene.h; sourceTree = "<group>"; };
 		927B260F12738E16002C4050 /* cv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cv.h; sourceTree = "<group>"; };
 		927B261012738E16002C4050 /* cv.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cv.hpp; sourceTree = "<group>"; };
 		927B261112738E16002C4050 /* cvaux.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cvaux.h; sourceTree = "<group>"; };
@@ -534,6 +537,8 @@
 		92D98EC11275712C00CC748B /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				926BF701127C96500094D031 /* movementLineDOF2Scene.cpp */,
+				926BF702127C96500094D031 /* movementLineDOF2Scene.h */,
 				9201A6551276734F0089DDFA /* thickLineScene.cpp */,
 				9201A6561276734F0089DDFA /* thickLineScene.h */,
 				92D98EC21275712C00CC748B /* baseScene.cpp */,
@@ -1043,6 +1048,7 @@
 				9201AC6B1278B2DD0089DDFA /* DOFCloudLine.frag in Sources */,
 				9201AC6C1278B2DD0089DDFA /* DOFCloudLine.vert in Sources */,
 				92588DDE1279CA880084483B /* movementLineDOFScene.cpp in Sources */,
+				926BF703127C96500094D031 /* movementLineDOF2Scene.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
