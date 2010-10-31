@@ -55,13 +55,7 @@ void testApp::update(){
 	
 	int frameNum = ofGetFrameNum();
 	int totalFrameNum = movie.totalFrameNum;
-	
-	processor.startUpdate();
-	processor.copyData(&movie, frameNum % totalFrameNum, 0);
-	processor.copyData(&movie, frameNum % totalFrameNum, 1);
-	processor.endUpdate();
-	
-	
+	processor.update(&movie, frameNum % totalFrameNum);
 	pointSet = processor.pointSet;
 	
 	for (int i = 0; i < numScenes; i++){

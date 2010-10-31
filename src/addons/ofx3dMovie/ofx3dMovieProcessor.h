@@ -24,12 +24,6 @@ public:
 	ofxCvGrayscaleImage depthCvSmoothed;
 	
 	
-	unsigned char * colorData;
-	ofTexture		colorTex;
-	
-	
-	
-	
 	point3dSet			pointSet;
 	point3d	*			points;
 	ofxControlPanel		panel;
@@ -39,14 +33,7 @@ public:
 	
 	int					lastFrame;
 	
-	
-	
-	void copyData(ofx3dMovie * movie, int frame, int whichMovie);
-	void startUpdate();
-	void endUpdate();
-	bool bNewFrame;
-	
-	
+	void update(ofx3dMovie * movie, int frame);
 	void setup();
 	void draw();
 
@@ -57,12 +44,6 @@ public:
 	void mousePressed(int x, int y, int button);
 	void mouseReleased(int x, int y, int button);
 	void windowResized(int w, int h);
-	
-	
-	int nVideos;
-	
-	
-	
 };
 
 #endif

@@ -36,13 +36,9 @@ void simpleScene::draw(){
 	glRotatef(control.rotateY,-1,0,0);
 	glRotatef(control.rotateX,0,1,0);
 	glBegin(GL_POINTS);
-	
-	int w = pointSet.nPointsW;
-	int h = pointSet.nPointsH;
-	
-	for(int i = 0; i < w; i++) {
-		for(int j = 0; j < h; j++) {
-			int n = (i  + j * w);
+	for(int i = 0; i < 176; i++) {
+		for(int j = 0; j < 144; j++) {
+			int n = (i  + j * 176);
 			if (points[n].bVisibleThisFrame == true){
 				ofSetColor(255,255,255,100);
 				glVertex3f(points[n].pos.x - pointSet.midPointSmoothed.x, points[n].pos.y - pointSet.midPointSmoothed.y, points[n].pos.z - pointSet.midPointSmoothed.z);
