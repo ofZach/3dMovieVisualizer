@@ -63,7 +63,7 @@ void movementLineDOFScene::update(){
 	
 	testApp * app = (testApp * ) ofGetAppPtr();
 	
-	int currLastFrame = app->processor.lastFrame;
+	int currLastFrame = app->processors[0].lastFrame;
 	
 	
 	
@@ -71,7 +71,7 @@ void movementLineDOFScene::update(){
 	
 	if (currLastFrame != lastFrameNum){
 		
-		currFrame = app->processor.depthCv;
+		currFrame = app->processors[0].depthCv;
 		
 		unsigned char * pix = currFrame.getPixels();
 		for (int i = 0; i < 176*144; i++){

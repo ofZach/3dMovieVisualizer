@@ -41,6 +41,7 @@ public:
 
 
 	point3dSet					pointSet;
+	point3dSetSet				pointSetSet;
 	sceneControl				control;
 	
 	

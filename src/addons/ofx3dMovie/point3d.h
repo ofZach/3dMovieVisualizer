@@ -29,3 +29,21 @@ class point3dSet {
 		ofxVec3f	midPointSmoothed;
 	
 };
+
+
+// this is a SET of SET :)
+
+class point3dSetSet {
+	
+public: 
+	
+	point3dSet * pointSets;
+	int nSets;
+	
+	// same things, here now....
+	ofPoint bottom;
+	ofPoint top;
+	ofxVec3f	midpt;
+	ofxVec3f	midPointSmoothed;
+	
+};

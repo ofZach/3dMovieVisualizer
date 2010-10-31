@@ -32,6 +32,8 @@ void ofx3dMovieProcessor::setup(){
 	panel.loadSettings("3dProcessorSettings.xml");
 	
 	lastFrame = -1;
+	
+	bNewFrame = false;
 }
 
 
@@ -104,10 +106,13 @@ void ofx3dMovieProcessor::update(ofx3dMovie * movie, int frameNum){
 	lastFrame = frameNum;
 	
 	if (prevFrame != frameNum){
+		bNewFrame = true;
 		unsigned char * pix = depthCv.getPixels();
 		for (int i = 0; i < 176*144; i++){
 			temporalBlur[i] = amount * temporalBlur[i] + (1-amount) * pix[i];
 		}
+	} else {
+		bNewFrame = false;	
 	}
 	unsigned char *brightness = movie->getBrightnessAtIndexOfFrame(frameNum % totalFrameNum);
 	unsigned char *color = movie->getColorAtIndexOfFrame(frameNum % totalFrameNum);

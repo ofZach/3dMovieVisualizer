@@ -72,7 +72,7 @@ void movementLineDOF2Scene::update(){
 	
 	testApp * app = (testApp * ) ofGetAppPtr();
 	
-	int currLastFrame = app->processor.lastFrame;
+	int currLastFrame = app->processors[0].lastFrame;
 	
 	
 	
@@ -81,7 +81,7 @@ void movementLineDOF2Scene::update(){
 	
 	if (currLastFrame != lastFrameNum){
 		
-		currFrame = app->processor.depthCv;
+		currFrame = app->processors[0].depthCv;
 		
 		
 		

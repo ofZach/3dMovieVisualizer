@@ -32,6 +32,8 @@ public:
 
 	
 	int					lastFrame;
+	bool				bNewFrame;
+	
 	
 	void update(ofx3dMovie * movie, int frame);
 	void setup();

@@ -22,14 +22,22 @@
 
 class testApp : public ofBaseApp{
 public:
-	
-	ofx3dMovie					movie;
-	ofx3dMovieProcessor			processor;
-	point3dSet					pointSet;
-	
+
+
+	int							nMovies;
+	point3dSetSet				pointSetSet;
+
+	ofx3dMovie					* movies;
+	ofx3dMovieProcessor			* processors;
+	point3dSet					* pointSets;
+ 
 	baseScene					** scenes;
 	int							currentScene;
 	int							numScenes;
+	
+	
+	ofxMatrix4x4				rotationMatrix;
+	ofxMatrix4x4				translationMatrix;
 	
 	
 	void setup();
