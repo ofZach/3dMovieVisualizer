@@ -28,4 +28,9 @@ class point3dSet {
 		ofxVec3f	midpt;
 		ofxVec3f	midPointSmoothed;
 	
+		int nPointsW;
+		int nPointsH;
+	
+	
 };
+
